@@ -23,6 +23,7 @@ jobs:
         useradd builduser -m
         passwd -d builduser
         printf 'builduser ALL=(ALL) ALL\n' | tee -a /etc/sudoers
+        chown builduser:builduser packages
     - name: Build microdlang ldc
       run: |
         sudo -u builduser bash -c 'cd packages/ldc && makepkg -s --noconfirm'
