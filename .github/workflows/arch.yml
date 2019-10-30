@@ -25,4 +25,4 @@ jobs:
         printf 'builduser ALL=(ALL) ALL\n' | tee -a /etc/sudoers
     - name: Build microdlang ldc
       run: |
-        sudo -u builduser bash -c 'packages/LDC && makepkg -s --noconfirm'
+        sudo -u builduser bash -c 'cd packages/ldc && makepkg -s --noconfirm'
