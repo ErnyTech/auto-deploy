@@ -15,15 +15,15 @@ jobs:
     - name: Update arch
       run: |
         pacman -Syyu --noconfirm
-    - name: Install base-devel and sudo
+    - name: Install base-devel, git and sudo
       run: |
-        pacman -S --noconfirm base-devel sudo
+        pacman -S --noconfirm base-devel sudo git
     - name: Setup build user
       run: |
         useradd builduser -m
         passwd -d builduser
         printf 'builduser ALL=(ALL) ALL\n' | tee -a /etc/sudoers
-        chown builduser:builduser packages
+
     - name: Build microdlang ldc
       run: |
-        sudo -u builduser bash -c 'cd packages/ldc && makepkg -s --noconfirm'
+        sudo -u builduser bash -c 'cd /tmp && git clone https://github.com/ErnyTech/auto-deploy.git && cd auto-deploy/packages/ldc && makepkg -s --noconfirm'
