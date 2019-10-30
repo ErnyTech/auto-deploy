@@ -15,3 +15,9 @@ jobs:
     - name: Update arch
       run: |
         pacman -Syyu --noconfirm
+    - name: Install base-devel
+      run: |
+        pacman -S --noconfirm base-devel
+    - name: Install git
+      run: |
+        pacman -S --noconfirm git
