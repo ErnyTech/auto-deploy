@@ -14,4 +14,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: Update arch
       run: |
-        pacman -Syyu
+        pacman -Syyu --noconfirm
