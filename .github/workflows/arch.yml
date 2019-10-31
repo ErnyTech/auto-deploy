@@ -30,7 +30,7 @@ jobs:
     - name: Move microdlang ldc
       run: |
         mkdir -p upload/ldc
-        mv /tmp/auto-deploy/packages/ldc/*.tar.xz upload/ldc/ldc.tar.xz
+        mv -T /tmp/auto-deploy/packages/ldc/*.tar.xz upload/ldc/ldc.tar.xz
 
     - uses: actions/upload-artifact@master
       with:
