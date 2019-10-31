@@ -31,6 +31,7 @@ jobs:
       run: |
         mkdir -p upload/ldc
         mv /tmp/auto-deploy/packages/ldc/*.tar.xz upload/ldc
+        rename s/:// upload/ldc/*.tar.xz
     - uses: actions/upload-artifact@master
       with:
         name: microdlang-ldc
