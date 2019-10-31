@@ -27,3 +27,12 @@ jobs:
     - name: Build microdlang ldc
       run: |
         sudo -u builduser bash -c 'cd /tmp && git clone https://github.com/ErnyTech/auto-deploy.git && cd auto-deploy/packages/ldc && makepkg -s --noconfirm'
+    - name: Move microdlang ldc
+      run: |
+        mkdir -p upload/ldc
+        mv /tmp/auto-deploy/packages/ldc/*.tar.gz upload/ldc
+    - uses: actions/upload-artifact@master
+      with:
+        name: microdlang-ldc
+        path: upload/ldc
+        
